@@ -29,7 +29,7 @@ class BaseModel(metaclass=ABCMeta):
         self.features_layer: tf.Tensor = None  # tf.Tensor, shape [batch_size, num_features]
 
     @abstractmethod
-    def init_from_numpy(self, path: str, sess: tf.Session, hs_weight_init: str) -> None:
+    def init_from_numpy(self, path: str, sess: tf.compat.v1.Session, hs_weight_init: str) -> None:
         '''
         Args:
         - path: str, path to saved weights
