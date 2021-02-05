@@ -5,7 +5,7 @@ from typing import Dict, Iterable, List, Optional
 
 import numpy as np
 
-from batchers.dataset_constants import SIZES, SURVEY_NAMES
+from batchers.dataset_constants import SURVEY_NAMES
 
 
 ROOT_DIR = os.path.dirname(os.path.dirname(__file__))
@@ -63,7 +63,7 @@ def dhs_ooc(dataset: str, split: str) -> np.ndarray:
             glob_path = os.path.join(
                 DHS_TFRECORDS_PATH_ROOT, country_year + '*', '*.tfrecord.gz')
             tfrecord_paths += glob(glob_path)
-    assert len(tfrecord_paths) == SIZES[dataset][split]
+    #assert len(tfrecord_paths) == SIZES[dataset][split]
     return np.sort(tfrecord_paths)
 
 
@@ -85,7 +85,7 @@ def lsms_ooc(cys: Optional[Iterable[str]] = None) -> List[str]:
     for cy in cys:
         glob_path = os.path.join(LSMS_TFRECORDS_PATH_ROOT, cy, '*.tfrecord.gz')
         tfrecord_paths.extend(sorted(glob(glob_path)))
-    expected_size = sum([SIZES['LSMS'][cy] for cy in cys])
+    #expected_size = sum([SIZES['LSMS'][cy] for cy in cys])
     # assert len(tfrecord_paths) == expected_size  # TODO: uncomment this
     return tfrecord_paths
 
@@ -112,7 +112,7 @@ def _incountry(dataset: str, splits: Iterable[str], tfrecords_glob_path: str,
         script preserves ordering within each survey.)
     '''
     all_tfrecord_paths = np.sort(glob(tfrecords_glob_path))
-    assert len(all_tfrecord_paths) == SIZES[dataset]['all']
+    #assert len(all_tfrecord_paths) == SIZES[dataset]['all']
 
     fold = dataset[-1]
     with open(folds_pickle_path, 'rb') as f:
@@ -126,7 +126,7 @@ def _incountry(dataset: str, splits: Iterable[str], tfrecords_glob_path: str,
         else:
             indices = incountry_fold[split]
             paths[split] = all_tfrecord_paths[indices]
-        assert len(paths[split]) == SIZES[dataset][split]
+        #assert len(paths[split]) == SIZES[dataset][split]
     return paths
 
 
