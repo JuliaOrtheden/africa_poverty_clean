@@ -8,7 +8,8 @@ import numpy as np
 from batchers.dataset_constants import SURVEY_NAMES
 
 
-ROOT_DIR = os.path.dirname(os.path.dirname(__file__))
+#ROOT_DIR = os.path.dirname(os.path.dirname(__file__))
+ROOT_DIR = 'MS-2021/'
 DHS_TFRECORDS_PATH_ROOT = os.path.join(ROOT_DIR, 'data/dhs_tfrecords')
 DHSNL_TFRECORDS_PATH_ROOT = os.path.join(ROOT_DIR, 'data/dhsnl_tfrecords')
 LSMS_TFRECORDS_PATH_ROOT = os.path.join(ROOT_DIR, 'data/lsms_tfrecords')
