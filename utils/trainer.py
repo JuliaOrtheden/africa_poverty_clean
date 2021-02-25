@@ -598,6 +598,8 @@ class ClassificationTrainer(BaseTrainer):
 
         Returns: xent, acc
         '''
+        labels = np.array(labels)
+        preds = np.array(preds)
         assert len(labels) == len(preds)
         assert len(preds.shape) == 2
 

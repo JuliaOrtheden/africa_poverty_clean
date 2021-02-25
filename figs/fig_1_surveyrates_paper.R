@@ -35,7 +35,7 @@ source("utils.R")
 # data/surveys/us_surveys.csv   | data/surveys/us_surveys.csv
 ######################################################
 
-year_cols = as.character(2000:2016)
+year_cols = as.character(1995:2016)
 
 # data frame for coverting between country names and codes
 cross = readr::read_csv("../data/surveys/crosswalk_countries.csv") %>%
@@ -296,4 +296,4 @@ p = ggplot() +
     )
 
 dir.create(file.path("output"), showWarnings = FALSE)
-ggsave("output/fig_1b_surveyrates_paper.pdf", plot=p,  width=11.5, height=7.4)
+ggsave("output/fig_1b_surveyrates_paper_multiple_years.pdf", plot=p,  width=11.5, height=7.4)
